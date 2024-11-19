@@ -45,7 +45,7 @@ func _physics_process(delta):
 	if !is_on_floor():
 			animation_player.stop()
 	if isLeaning:
-		SPEED = 175
+		SPEED = 125
 	else:
 		SPEED = 250
 	if direction:
