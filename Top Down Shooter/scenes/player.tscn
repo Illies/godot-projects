@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://br7585ho0p26p"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_y5bba"]
+[ext_resource type="Texture2D" uid="uid://bomqoje8l8h7s" path="res://assets/1 - qmXUe5p.png" id="2_lmhfp"]
+[ext_resource type="Texture2D" uid="uid://ccu3m7sdnvtar" path="res://assets/prop_attenuation_quad.png" id="3_pux6u"]
+[ext_resource type="Texture2D" uid="uid://dbky5n34kyu0r" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_xk13d"]
+[ext_resource type="AudioStream" uid="uid://druoapspsgp1u" path="res://assets/glock shoot sfx.mp3" id="4_gxevp"]
+[ext_resource type="Texture2D" uid="uid://hcnfnf2hqh24" path="res://assets/background.png" id="5_la5sk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gop3f"]
+radius = 25.0799
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y5bba")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(249.5, -41.0001)
+scale = Vector2(11.9961, 9.53125)
+texture = ExtResource("5_la5sk")
+
+[node name="flash_light" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(614, 8)
+scale = Vector2(3.49448, 5.61305)
+energy = 1.3
+texture = ExtResource("3_pux6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+shape = SubResource("CircleShape2D_gop3f")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(19, 9)
+target_position = Vector2(2000, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gxevp")
+attenuation = 0.183011
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 1)
+texture = ExtResource("2_lmhfp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(47, 8)
+scale = Vector2(0.0587359, 0.0587359)
+color = Color(0.891813, 0.686718, 0.508942, 1)
+energy = 8.17
+texture = ExtResource("3_xk13d")
+
+[node name="flash_light" type="PointLight2D" parent="PointLight2D"]
+position = Vector2(19460, -17.0255)
+scale = Vector2(118.813, 190.721)
+color = Color(0.806794, 0.57955, 0.376758, 1)
+energy = 3.89
+texture = ExtResource("3_pux6u")

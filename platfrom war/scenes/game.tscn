@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkihhh22bjccp"]
+
+[ext_resource type="Texture2D" uid="uid://itoilv44xdws" path="res://assets/tileMap.png" id="1_ai16o"]
+[ext_resource type="PackedScene" uid="uid://bfc3fedv1v8bw" path="res://scenes/player.tscn" id="2_8o1g4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_051i4"]
+texture = ExtResource("1_ai16o")
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cb6pk"]
+sources/0 = SubResource("TileSetAtlasSource_051i4")
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_cb6pk")
+format = 2
+
+[node name="Player" type="Node" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource("2_8o1g4")]
+position = Vector2(0, -29)

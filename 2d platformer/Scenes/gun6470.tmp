@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dghm1txxlgge1"]
+
+[ext_resource type="Script" path="res://Scripts/gun.gd" id="1_eg6uh"]
+[ext_resource type="Texture2D" uid="uid://dmkwx6lthhq5c" path="res://Assets/pixelM4.png" id="2_hpapy"]
+[ext_resource type="Texture2D" uid="uid://c1b3n3j67jp22" path="res://Assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_oe4nj"]
+[ext_resource type="Texture2D" uid="uid://cwd4fceqlg1ea" path="res://Assets/muzzleFlash.png" id="4_48iv0"]
+[ext_resource type="AudioStream" uid="uid://bbkipdquikgpi" path="res://Assets/SFX/STREAMING-bullet-shell-drops-epic-stock-media-1-1-00-00.mp3" id="5_xeifg"]
+[ext_resource type="AudioStream" uid="uid://bx6862qjnhhe1" path="res://Assets/SFX/STREAMING-gunshot-assault-rifle-heavy-fascinatedsound-1-1-00-03.mp3" id="5_y7hgk"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_eg6uh")
+
+[node name="PixelM4" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("2_hpapy")
+offset = Vector2(22, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(47, -1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(47, 0)
+scale = Vector2(0.488281, 0.488281)
+color = Color(0.83, 0.664, 0, 1)
+energy = 3.5
+texture = ExtResource("3_oe4nj")
+
+[node name="MuzzleFlash" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(47, 1)
+texture = ExtResource("4_48iv0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="gunShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y7hgk")
+
+[node name="bulletSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xeifg")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

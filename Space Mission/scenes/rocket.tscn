@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfvxuk5t3cgv6"]
+
+[ext_resource type="Texture2D" uid="uid://nc7vf6bhw4t2" path="res://assets/red-rocket-png-5.png" id="1_cxdvi"]
+[ext_resource type="Script" path="res://scenes/rocket.gd" id="1_m2fps"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s17gu"]
+radius = 37.5822
+height = 242.607
+
+[sub_resource type="Gradient" id="Gradient_wonly"]
+offsets = PackedFloat32Array(0, 0.857143)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h3scg"]
+gradient = SubResource("Gradient_wonly")
+
+[sub_resource type="Curve" id="Curve_ve54g"]
+_data = [Vector2(0, 0.157807), 0.0, 0.0, 0, 0, Vector2(0.269841, 0.881229), 0.0, 0.0, 0, 0, Vector2(0.531746, 0.481728), 0.0, 0.0, 0, 0, Vector2(0.97619, 0.30897), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_85y2w"]
+curve = SubResource("Curve_ve54g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfqs2"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_max = 70.0
+scale_curve = SubResource("CurveTexture_85y2w")
+color = Color(1, 0.816667, 0, 1)
+color_ramp = SubResource("GradientTexture1D_h3scg")
+
+[node name="Rocket" type="CharacterBody2D"]
+rotation = 1.44668
+script = ExtResource("1_m2fps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.36388, -48.4538)
+rotation = 0.154054
+texture = ExtResource("1_cxdvi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.67454, -74.1519)
+rotation = 0.132909
+scale = Vector2(0.833805, 0.700679)
+shape = SubResource("CapsuleShape2D_s17gu")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-5.03229, -24.7927)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hfqs2")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkk3qrhrb7lfh"]
+
+[ext_resource type="Texture2D" uid="uid://da7xfko3w1hd0" path="res://Assets/woodenBox.png" id="1_qcvep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6106"]
+size = Vector2(32, 32)
+
+[node name="woodenBox" type="RigidBody2D"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g6106")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qcvep")

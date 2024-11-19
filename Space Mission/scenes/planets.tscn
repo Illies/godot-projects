@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuhylmry84row"]
+
+[ext_resource type="Texture2D" uid="uid://d3l00ylmqhe36" path="res://assets/Ice_planet.png" id="1_gqodf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpmss"]
+radius = 352.363
+
+[node name="Planets" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dpmss")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gqodf")

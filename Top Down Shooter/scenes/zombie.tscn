@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://wcp7304lxtc1"]
+
+[ext_resource type="Script" path="res://scripts/zombie.gd" id="1_87rtu"]
+[ext_resource type="Texture2D" uid="uid://deqph6o8n7wbo" path="res://assets/2 - L8Setcz.png" id="1_dm2yp"]
+[ext_resource type="Texture2D" uid="uid://cic7h5ulcesoe" path="res://assets/dead man2.png" id="3_6pj2u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddfo8"]
+radius = 31.257
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5q5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dm2yp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6pj2u")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="CharacterBody2D"]
+script = ExtResource("1_87rtu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ddfo8")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(75, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d5q5x")

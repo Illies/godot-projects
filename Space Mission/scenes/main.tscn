@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ga1ca2aw488h"]
+
+[ext_resource type="PackedScene" uid="uid://cuhylmry84row" path="res://scenes/planets.tscn" id="1_owmju"]
+[ext_resource type="PackedScene" uid="uid://dfvxuk5t3cgv6" path="res://scenes/rocket.tscn" id="2_5prp2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Planets" parent="." instance=ExtResource("1_owmju")]
+gravity_scale = 0.0
+
+[node name="Planets2" parent="." instance=ExtResource("1_owmju")]
+position = Vector2(4030, -2948)
+gravity_scale = 0.0
+
+[node name="Rocket" parent="." instance=ExtResource("2_5prp2")]
+position = Vector2(3949, 394)
