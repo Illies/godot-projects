@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0j4ntqvuipal"]
+
+[ext_resource type="Texture2D" uid="uid://85aj0m1xsdvc" path="res://icon.svg" id="1_ilafc"]
+[ext_resource type="Script" path="res://gun.gd" id="1_pf2gc"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_pf2gc")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -2.11758e-22)
+scale = Vector2(2.71875, 0.375)
+texture = ExtResource("1_ilafc")
+offset = Vector2(64, 7.94729e-07)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(348, 0)

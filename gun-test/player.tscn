@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc423rk4wjnqb"]
+
+[ext_resource type="Texture2D" uid="uid://85aj0m1xsdvc" path="res://icon.svg" id="1_lotef"]
+[ext_resource type="Script" path="res://player.gd" id="1_prhc2"]
+[ext_resource type="PackedScene" uid="uid://d0j4ntqvuipal" path="res://gun.tscn" id="3_rhdpn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwdsp"]
+radius = 63.0
+height = 658.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, -333)
+script = ExtResource("1_prhc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rwdsp")
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -89)
+scale = Vector2(0.992188, 2.39063)
+texture = ExtResource("1_lotef")
+
+[node name="leftLeg" type="Sprite2D" parent="."]
+position = Vector2(-36, 192)
+scale = Vector2(0.401005, 2.13241)
+texture = ExtResource("1_lotef")
+
+[node name="rightLeg" type="Sprite2D" parent="."]
+position = Vector2(33, 192)
+scale = Vector2(0.401005, 2.13241)
+texture = ExtResource("1_lotef")
+
+[node name="head" type="Sprite2D" parent="."]
+position = Vector2(-1, -311)
+texture = ExtResource("1_lotef")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-15, 73)
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("1_lotef")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(18, 74)
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("1_lotef")
+
+[node name="Gun" parent="." instance=ExtResource("3_rhdpn")]
+position = Vector2(0, 59)
